@@ -1,12 +1,11 @@
+.glow-yellow {
+  box-shadow: 0 4rem 6rem 3rem rgb(216 173 9);
+}
 
-/* 
+.glow-red {
+  box-shadow: 0 4rem 6rem 3rem rgb(210 72 14);
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+.glow-green {
+  box-shadow: 0 4rem 6rem 3rem rgb(9 216 50);
+}
