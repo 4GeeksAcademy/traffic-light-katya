@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 //create your first component
-const TrafficLight = () => {
+const TrafficLight = (props) => {
   const [color, setColor] = useState("");
 
   function clickHandler(clickedColor) {
@@ -41,8 +42,18 @@ const TrafficLight = () => {
           ></button>
         </div>
       </div>
+      <div className="row d-flex justify-content-center my-3">
+      <div className="col-4 d-flex justify-content-center">
+      <button onClick={props.set} type="button" className="btn btn-success m-2 w-25">Start the lights</button>
+      <button onClick={props.addPurple} type="button" className="btn text-white m-2 w-25" style={{backgroundColor: "#952a95"}}>Add purple</button>
+      </div>
+      </div>
     </div>
   );
+};
+
+TrafficLight.propTypes = {
+  onClick: PropTypes.func
 };
 
 export default TrafficLight;
