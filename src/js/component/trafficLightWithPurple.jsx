@@ -1,11 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 
 const TrafficLightWithPurple = () => {
-  const [color, setColor] = useState("");
+    const [color, setColor] = useState("");
+    const colors = ["red", "yellow", "green", "purple"];
+    const [isRunning, setIsRunning] = useState(false);
 
   function highlightColor(clickedColor) {
     setColor(clickedColor);
   }
+
+  function startLights() {
+    let currentIndex = colors.indexOf(color);
+    currentIndex = (currentIndex + 1) % colors.length;
+    setColor(colors[currentIndex]);
+  }
+
+  useEffect(() => {
+    let intervalId;
+
+    if (isRunning) {
+      intervalId = setInterval(() => {
+        startLights();
+      }, 3000);
+    } else {
+      clearInterval(intervalId);
+    }
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [isRunning, color]);
 
   return (
     <div>
@@ -49,6 +73,27 @@ const TrafficLightWithPurple = () => {
             }`}
             style={{ height: "100px", backgroundColor: "#952a95" }}
           ></button>
+        </div>
+      </div>
+      <div className="row d-flex justify-content-center my-3" /* -BUTTONS- */>
+        <div className="col-4 d-flex justify-content-center">
+          {isRunning ? (
+            <button
+              onClick={() => setIsRunning(!isRunning)}
+              type="button"
+              className="btn btn-danger m-2 w-25"
+            >
+              Stop the lights
+            </button>
+          ) : (
+            <button
+              onClick={() => setIsRunning(!isRunning)}
+              type="button"
+              className="btn btn-success m-2 w-25"
+            >
+              Start the lights
+            </button>
+          )}
         </div>
       </div>
     </div>
