@@ -2,29 +2,31 @@ import React, { useState, useEffect } from "react";
 
 //create your first component
 const TrafficLight = () => {
+
+  /* -VARIABLES- */
   const [color, setColor] = useState("");
-  const [isRunning, setIsRunning] = useState(false);
   const colors = ["red", "yellow", "green"];
+  const [isRunning, setIsRunning] = useState(false);
 
-  function clickHandler(clickedColor) {
+  /* -BUTTONS CLICK HANDLERS- */
+
+  function highlightColor(clickedColor) {
     setColor(clickedColor);
-  };
-
+  }
 
   function startLights() {
     let currentIndex = colors.indexOf(color);
     currentIndex = (currentIndex + 1) % colors.length;
     setColor(colors[currentIndex]);
-  };
+  }
 
-  
   useEffect(() => {
     let intervalId;
 
     if (isRunning) {
       intervalId = setInterval(() => {
         startLights();
-      }, 3000); // Change the interval time as needed (e.g., 1000ms = 1 second)
+      }, 3000);
     } else {
       clearInterval(intervalId);
     }
@@ -34,16 +36,18 @@ const TrafficLight = () => {
     };
   }, [isRunning, color]);
 
-
   return (
     <div>
-      <div className="row d-flex justify-content-center">
-        <div className="bg-black" style={{height: "100px", width: "30px"}}></div>{" "}
+      <div className="row d-flex justify-content-center" /* -TRAFFIC LIGHTS- */>
+        <div
+          className="bg-black"
+          style={{ height: "100px", width: "30px" }}
+        ></div>{" "}
       </div>
       <div className="row d-flex justify-content-center">
         <div className="col-1 d-flex flex-column justify-content-center bg-black rounded">
           <button
-            onClick={() => clickHandler("red")}
+            onClick={() => highlightColor("red")}
             type="button"
             className={`btn btn-danger m-3 rounded-circle ${
               color == colors[0] ? "glow-red" : ""
@@ -51,7 +55,7 @@ const TrafficLight = () => {
             style={{ height: "100px" }}
           ></button>
           <button
-            onClick={() => clickHandler("yellow")}
+            onClick={() => highlightColor("yellow")}
             type="button"
             className={`btn btn-warning m-3 rounded-circle ${
               color == colors[1] ? "glow-yellow" : ""
@@ -59,7 +63,7 @@ const TrafficLight = () => {
             style={{ height: "100px" }}
           ></button>
           <button
-            onClick={() => clickHandler("green")}
+            onClick={() => highlightColor("green")}
             type="button"
             className={`btn btn-success m-3 rounded-circle ${
               color == colors[2] ? "glow-green" : ""
@@ -68,15 +72,37 @@ const TrafficLight = () => {
           ></button>
         </div>
       </div>
-      <div className="row d-flex justify-content-center my-3">
-      <div className="col-4 d-flex justify-content-center">
-      <button onClick={() => setIsRunning(!isRunning)} type="button" className="btn btn-success m-2 w-25">{isRunning ? "Stop the lights" : "Start the lights"}</button>
-      <button type="button" className="btn text-white m-2 w-25" style={{backgroundColor: "#952a95"}}>Add purple</button>
-      </div>
+      <div className="row d-flex justify-content-center my-3" /* -BUTTONS- */>
+        <div className="col-4 d-flex justify-content-center">
+          {isRunning ? (
+            <button
+              onClick={() => setIsRunning(!isRunning)}
+              type="button"
+              className="btn btn-danger m-2 w-25"
+            >
+              Stop the lights
+            </button>
+          ) : (
+            <button
+              onClick={() => setIsRunning(!isRunning)}
+              type="button"
+              className="btn btn-success m-2 w-25"
+            >
+              Start the lights
+            </button>
+          )}
+
+          <button
+            type="button"
+            className="btn text-white m-2 w-25"
+            style={{ backgroundColor: "#952a95" }}
+          >
+            Add purple
+          </button>
+        </div>
       </div>
     </div>
   );
 };
-
 
 export default TrafficLight;
