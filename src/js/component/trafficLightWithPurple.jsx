@@ -68,7 +68,7 @@ const TrafficLightWithPurple = () => {
           <button
             onClick={() => highlightColor(colors[3])}
             type="button"
-            className={`btn btn-success m-3 rounded-circle ${
+            className={`btn m-3 rounded-circle ${
               color == colors[3] ? "glow-purple" : ""
             }`}
             style={{ height: "100px", backgroundColor: "#952a95" }}
