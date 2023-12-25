@@ -21,7 +21,7 @@ const TrafficLightWithPurple = () => {
     if (isRunning) {
       intervalId = setInterval(() => {
         startLights();
-      }, 3000);
+      }, 2500);
     } else {
       clearInterval(intervalId);
     }
@@ -42,34 +42,34 @@ const TrafficLightWithPurple = () => {
       <div className="row d-flex justify-content-center">
         <div className="col-1 d-flex flex-column justify-content-center bg-black rounded">
           <button
-            onClick={() => highlightColor("red")}
+            onClick={() => highlightColor(colors[0])}
             type="button"
             className={`btn btn-danger m-3 rounded-circle ${
-              color == "red" ? "glow-red" : ""
+              color == colors[0] ? "glow-red" : ""
             }`}
             style={{ height: "100px" }}
           ></button>
           <button
-            onClick={() => highlightColor("yellow")}
+            onClick={() => highlightColor(colors[1])}
             type="button"
             className={`btn btn-warning m-3 rounded-circle ${
-              color == "yellow" ? "glow-yellow" : ""
+              color == colors[1] ? "glow-yellow" : ""
             }`}
             style={{ height: "100px" }}
           ></button>
           <button
-            onClick={() => highlightColor("green")}
+            onClick={() => highlightColor(colors[2])}
             type="button"
             className={`btn btn-success m-3 rounded-circle ${
-              color == "green" ? "glow-green" : ""
+              color == colors[2] ? "glow-green" : ""
             }`}
             style={{ height: "100px" }}
           ></button>
           <button
-            onClick={() => highlightColor("purple")}
+            onClick={() => highlightColor(colors[3])}
             type="button"
             className={`btn btn-success m-3 rounded-circle ${
-              color == "purple" ? "glow-purple" : ""
+              color == colors[3] ? "glow-purple" : ""
             }`}
             style={{ height: "100px", backgroundColor: "#952a95" }}
           ></button>
