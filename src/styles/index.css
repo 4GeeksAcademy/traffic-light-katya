@@ -1,11 +1,11 @@
 .glow-yellow {
-  box-shadow: 0 4rem 6rem 3rem rgb(216 173 9);
+  box-shadow: 6px -16px 150px 100px rgb(216 173 9);
 }
 
 .glow-red {
-  box-shadow: 0 4rem 6rem 3rem rgb(210 72 14);
+  box-shadow: 6px -16px 150px 100px rgb(210 72 14);
 }
 
 .glow-green {
-  box-shadow: 0 4rem 6rem 3rem rgb(9 216 50);
+  box-shadow: 6px -16px 150px 100px rgb(9 216 50);
 }
