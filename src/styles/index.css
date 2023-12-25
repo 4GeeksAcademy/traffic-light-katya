@@ -9,3 +9,7 @@
 .glow-green {
   box-shadow: 6px -16px 150px 100px rgb(9 216 50);
 }
+
+.glow-purple {
+  box-shadow: 6px -16px 150px 100px rgb(207 9 216);
+}

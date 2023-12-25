@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TrafficLight = () => {
+const TrafficLightWithPurple = () => {
   const [color, setColor] = useState("");
 
   function highlightColor(clickedColor) {
@@ -41,10 +41,18 @@ const TrafficLight = () => {
             }`}
             style={{ height: "100px" }}
           ></button>
+          <button
+            onClick={() => highlightColor("purple")}
+            type="button"
+            className={`btn btn-success m-3 rounded-circle ${
+              color == "purple" ? "glow-purple" : ""
+            }`}
+            style={{ height: "100px", backgroundColor: "#952a95" }}
+          ></button>
         </div>
       </div>
     </div>
   );
 };
 
-export default TrafficLight;
+export default TrafficLightWithPurple;
