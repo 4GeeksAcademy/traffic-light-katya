@@ -1,9 +1,9 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const TrafficLightWithPurple = () => {
-    const [color, setColor] = useState("");
-    const colors = ["red", "yellow", "green", "purple"];
-    const [isRunning, setIsRunning] = useState(false);
+  const [color, setColor] = useState("");
+  const colors = ["red", "yellow", "green", "purple"];
+  const [isRunning, setIsRunning] = useState(false);
 
   function highlightColor(clickedColor) {
     setColor(clickedColor);
@@ -87,7 +87,10 @@ const TrafficLightWithPurple = () => {
             </button>
           ) : (
             <button
-              onClick={() => setIsRunning(!isRunning)}
+              onClick={() => {
+                setColor("red");
+                setIsRunning(!isRunning);
+              }}
               type="button"
               className="btn btn-success m-2 w-25"
             >

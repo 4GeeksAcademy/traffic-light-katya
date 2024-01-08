@@ -79,7 +79,11 @@ const TrafficLight = () => {
             </button>
           ) : (
             <button
-              onClick={() => setIsRunning(!isRunning)}
+              onClick={() => {
+                setColor("red")
+                setIsRunning(!isRunning)
+            
+              }}
               type="button"
               className="btn btn-success m-2 w-25"
             >
