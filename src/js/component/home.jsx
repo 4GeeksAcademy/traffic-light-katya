@@ -14,14 +14,25 @@ const Home = () => {
       {purpleAdded ? <TrafficLightWithPurple /> : <TrafficLight />}
       <div className="row d-flex justify-content-center my-3" /* -BUTTONS- */>
         <div className="col-4 d-flex justify-content-center">
-          <button
-            onClick={() => setPurpleAdded(!purpleAdded)}
-            type="button"
-            className="btn text-white w-25"
-            style={{ backgroundColor: "#952a95" }}
-          >
-            Add purple
-          </button>
+          {purpleAdded ? (
+            <button
+              onClick={() => setPurpleAdded(!purpleAdded)}
+              type="button"
+              className="btn text-white w-25"
+              style={{ backgroundColor: "#952a95" }}
+            >
+              Remove purple
+            </button>
+          ) : (
+            <button
+              onClick={() => setPurpleAdded(!purpleAdded)}
+              type="button"
+              className="btn text-white w-25"
+              style={{ backgroundColor: "#952a95" }}
+            >
+              Add purple
+            </button>
+          )}
         </div>
       </div>
     </div>
